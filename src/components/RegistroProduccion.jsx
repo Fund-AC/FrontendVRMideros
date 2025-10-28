@@ -1147,15 +1147,14 @@ export default function RegistroProduccion() {
     }));
   }, [actividades, actividadesExistentes]);
 
-  // Control de visibilidad del botón flotante basado en scroll
+  // Control de visibilidad del botón flotante basado solo en scroll
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const shouldShow = scrollTop > 300; // Mostrar después de 300px de scroll
+      const shouldShow = scrollTop > 300;
       setShowFloatingButton(shouldShow);
     };
 
-    // Agregar el listener
     window.addEventListener('scroll', handleScroll);
 
     // Mostrar el botón inicialmente después de un pequeño delay
@@ -2008,10 +2007,13 @@ export default function RegistroProduccion() {
         </div>
       </div>
       {/* Botón Flotante para Agregar Actividad */}
-      <div className={`fixed bottom-6 right-6 z-50 transition-all duration-500 ${showFloatingButton
-        ? 'opacity-100 translate-y-0 scale-100'
-        : 'opacity-0 translate-y-4 scale-90 pointer-events-none'
-        }`}>
+      <div
+        className={`fixed bottom-6 right-6 z-50 transition-all duration-500 ${
+          showFloatingButton
+            ? 'opacity-100 translate-y-0 scale-100'
+            : 'opacity-0 translate-y-4 scale-90 pointer-events-none'
+        }`}
+      >
         <div className="relative">
           {/* Botón principal */}
           <button
@@ -2053,8 +2055,6 @@ export default function RegistroProduccion() {
               {actividades.length}
             </button>
           )}
-
-
         </div>
       </div>
     </div>
