@@ -153,6 +153,7 @@ const TablaJornadasRecientes = ({ jornadas, loading, navigate }) => {
         setLoading(false);
       }
     };
+    
 
     fetchDashboardData();
 
