@@ -730,7 +730,7 @@ const PlantillasRapidas = ({ onAgregarPlantilla, areasProduccionData, maquinasDa
         type="button"
         onClick={() => setShowPlantillas(!showPlantillas)}
         disabled={disabled}
-        className="group flex items-center gap-3 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 font-medium text-sm border border-blue-500/20"
+        className="group flex items-center gap-3 p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-md text-white px-6 py-3 hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 font-medium text-sm border border-blue-500/20"
       >
         <div className="p-1.5 bg-white/20 backdrop-blur-sm rounded-lg shadow-inner">
           <Plus className="w-4 h-4" />
@@ -758,7 +758,7 @@ const PlantillasRapidas = ({ onAgregarPlantilla, areasProduccionData, maquinasDa
             {/* Header compacto */}
             <div className="mb-4">
               <div className="flex items-center gap-2.5 mb-2">
-                <div className="p-1.5 bg-gradient-to-br from-purple-500 via-indigo-600 to-blue-600 rounded-lg shadow-md">
+                <div className="p-1.5 bg-gradient-to-br from-indigo-500 via-blue-500 to-indigo-500 rounded-lg shadow-md">
                   <Zap className="w-4 h-4 text-white" />
                 </div>
                 <div>
@@ -1914,12 +1914,12 @@ export default function RegistroProduccion() {
                 {/* Información adicional compacta */}
                 <div className="bg-gradient-to-r from-emerald-50/80 to-teal-50/80 border border-emerald-200/40 rounded-lg p-3">
                   <div className="flex items-center gap-3">
-                    <div className="p-1.5 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg">
+                    <div className="p-1.5 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-emerald-800">Sistema de Plantillas Inteligentes</h4>
-                      <p className="text-xs text-emerald-700 leading-tight">
+                      <h4 className="text-sm font-semibold text-esmerald-800">Sistema de Plantillas Inteligentes</h4>
+                      <p className="text-xs text-gray-600 leading-tight">
                         Cada plantilla incluye configuraciones optimizadas y completamente personalizables.
                       </p>
                     </div>
@@ -1948,7 +1948,7 @@ export default function RegistroProduccion() {
             {/* Botones de acción */}
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-gradient-to-br from-green-500 to-green-600 rounded-lg shadow-md">
+                <div className="p-1.5 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg">
                   <Save className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -1988,7 +1988,7 @@ export default function RegistroProduccion() {
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white text-base h-11 rounded-lg shadow-md hover:shadow-xl transition-all duration-200 min-w-[200px]"
+                  className="group flex items-center gap-3 p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-md text-white px-6 py-3 hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 font-medium text-sm border border-blue-500/20"
                 >
                   {loading ? (
                     <>
@@ -2019,11 +2019,11 @@ export default function RegistroProduccion() {
           <button
             type="button"
             onClick={addActividad}
-            className="group relative bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white p-4 rounded-full shadow-2xl hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-110 active:scale-95 border-2 border-purple-500 hover:border-purple-400"
+            className="group relative bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white p-4 rounded-full shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 transform hover:scale-110 active:scale-95 border-2 border-blue-700 hover:border-indigo-700"
             aria-label="Agregar nueva actividad"
           >
             {/* Efecto de pulso de fondo */}
-            <div className="absolute inset-0 rounded-full bg-purple-600 animate-ping opacity-20"></div>
+            <div className="absolute inset-0 rounded-full bg-blue-600 animate-ping opacity-20"></div>
 
             {/* Icono principal con animación */}
             <div className="relative flex items-center justify-center">
