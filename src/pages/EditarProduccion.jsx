@@ -677,7 +677,7 @@ function EditarProduccion({ produccion: produccionProp, onClose, onGuardar, invo
       );
     } return (
       <Card className="w-full p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-2xl bg-white border border-blue-100 max-h-[calc(100vh-40px)] overflow-y-auto">
-        <h2 className="text-xl sm:text-2xl font-bold text-center mb-4 sm:mb-6 text-blue-700 tracking-tight">Editar Producción</h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-center mb-4 sm:mb-6 text-gray-600 tracking-tight">Editar Producción</h2>
 
         {/* Required fields note */}
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4 sm:mb-6">
@@ -926,15 +926,15 @@ function EditarProduccion({ produccion: produccionProp, onClose, onGuardar, invo
                 else if (paramId) navigate(-1);
                 else navigate('/operario-dashboard');
               }}
-              className="order-2 sm:order-1 bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-300 font-medium px-6 sm:px-8 py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 text-sm sm:text-base w-full sm:w-auto"
+              className="order-1 sm:order-2 bg-gradient-to-r from-red-400 to-red-600  text-white font-semibold px-6 sm:px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-sm sm:text-base w-full sm:w-auto transform hover:scale-105"
             >
               Cancelar
             </Button>
             <Button
               type="submit"
-              className="order-1 sm:order-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold px-6 sm:px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-sm sm:text-base w-full sm:w-auto transform hover:scale-105"
+              className="order-1 sm:order-2 bg-gradient-to-r from-teal-400 to-teal-600 border-emerald-200/40  text-white font-semibold px-6 sm:px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-sm sm:text-base w-full sm:w-auto transform hover:scale-105"
             >
-              Guardar Cambios
+              Guardar 
             </Button>
           </div>
         </form>

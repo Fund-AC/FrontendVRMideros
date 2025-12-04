@@ -93,7 +93,8 @@ const ValidateCedula = () => {
       <div className="absolute top-4 right-4">
         <button
           onClick={handleLogout}
-          className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200"
+          className="order-1 sm:order-2 bg-gradient-to-r from-red-400 to-red-600  text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 text-sm sm:text-base w-full sm:w-auto transform hover:scale-105"
+          //  className="order-1 sm:order-2 bg-gradient-to-r from-red-400 to-red-600  text-white font-semibold px-6 sm:px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-sm sm:text-base w-full sm:w-auto transform hover:scale-105"
         >
           Cerrar Sesión
         </button>

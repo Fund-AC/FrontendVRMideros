@@ -82,7 +82,7 @@ const ActivityCard = ({ actividad, onVerDetalle, onEditarActividad }) => {
     return (
         <motion.div
             key={actividad._id}
-            className="bg-white px-4 pt-4 rounded-xl border border-gray-200 flex flex-col justify-between shadow-sm relative overflow-hidden"
+            className="bg-white px-4 pt-4 rounded-xl border border-gray-300 flex flex-col justify-between shadow-sm relative overflow-hidden"
             whileHover={{ scale: 1.01 }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -90,24 +90,24 @@ const ActivityCard = ({ actividad, onVerDetalle, onEditarActividad }) => {
         >
             {/* Contenido principal de la tarjeta */}
                         <div className="relative z-10 flex items-center gap-3 mb-3">
-                <Hammer className="w-6 h-6 text-blue-500" aria-label="Actividad" />
+                <Hammer className="w-6 h-6 text-blue-600" aria-label="Actividad" />
                 <div className="flex-1">
-                    <h4 className="font-medium text-gray-800 text-lg">
+                    <h4 className="font-medium text-black text-lg">
                         {actividad.procesos && Array.isArray(actividad.procesos) && actividad.procesos.length > 0 ? actividad.procesos.map(p => p.nombre).join(', ') : actividad.proceso?.nombre || 'N/A'}</h4>
-                    <p className="text-sm text-gray-500">OTI: {actividad.oti?.numeroOti || actividad.oti || 'N/A'}</p>
+                    <p className="text-sm text-gray-900">OTI: {actividad.oti?.numeroOti || actividad.oti || 'N/A'}</p>
                 </div>
                 <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getStateColors(displayState)}`}>
                     {displayState}
                 </span>
             </div>
 
-            <div className="relative z-10 grid grid-cols-2 gap-2 text-sm text-gray-600 mb-4">
+            <div className="relative z-10 grid grid-cols-2 gap-2 text-sm text-gray-900 mb-4">
                         <div>
-                    <span className="font-semibold block">Inicio</span>
+                    <span className="font-semibold block text-black">Inicio</span>
                     {formatTime(actividad.horaInicio)}
                 </div>
                 <div className="text-right">
-                    <span className="font-semibold block">Fin</span>
+                    <span className="font-semibold block text-black">Fin</span>
                     {displayFinTime}
                 </div>
             </div>

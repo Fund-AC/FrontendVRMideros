@@ -288,17 +288,19 @@ const OperarioDashboard = React.memo(() => {
                             Producción VR Mideros
                         </div>
                         <div className="flex flex-col items-center space-y-1 bg-white px-4 py-2 rounded-lg shadow-sm">
-                            <UserCircle2 className="h-8 w-8 text-gray-500" />
-                            <span className="text-sm text-gray-500">Operario</span>
-                            <span className="font-semibold text-gray-700">{operarioName}</span>
+                            <UserCircle2 className="h-8 w-8 text-blue-600" />
+                            <span className="text-sm text-blue-600">Operario</span>
+                            <span className="font-semibold text-black-700">{operarioName}</span>
                         </div>
                     </div>
 
                     {loading ? (
                         <LoadingSkeleton />
                     ) : (
-                        <>                            {/* Sección de Jornada de Hoy Header */}
-                        <div className="bg-gradient-to-r from-gray-600 to-gray-800 text-white p-4 rounded-lg shadow-md mb-6 flex justify-between items-center">
+                        <>                 {/* Sección de Jornada de Hoy Header */}
+                                                        {/* //cambiarcolor// */}
+                    <div className="bg-gray-700 text-white p-4 rounded-md flex justify-between items-center mb-4">
+
                         <div>
                                     <h2 className="text-white font-bold">Jornada de Hoy</h2>
                                     <p className="text-sm">{jornadaActual?.fecha ? getFormattedLocalDateDisplay(jornadaActual.fecha) : getCurrentLocalDateDisplay()}</p>
@@ -347,13 +349,13 @@ const OperarioDashboard = React.memo(() => {
                                     </div>
 
                                     {/* Resumen del Día */}
-                                    <Card className="p-6 rounded-xl shadow-lg mt-6 bg-blue-50 border border-blue-200 flex justify-between items-center">
-                                        <div className="flex items-center gap-3 text-blue-800">
+                                    <Card className="p-6 rounded-xl shadow-lg mt-6 bg-gray-50 border border-gray-200 flex justify-between items-center">
+                                        <div className="flex items-center gap-3 text-blue-600">
                                             <ClipboardList className="w-6 h-6" aria-label="Resumen del Día" />
                                             <h3 className="text-lg font-semibold">Resumen del Día</h3>
-                                            <p className="text-sm text-blue-700">Tiempo total trabajado</p>
+                                            <p className="text-sm text-gray-700">Tiempo total trabajado</p>
                                         </div>
-                                        <div className="text-right text-blue-900">
+                                        <div className="text-right text-green-600">
                                             <span className="text-2xl font-bold">{calcularTotalTiempo(jornadaActual)}</span>
                                         </div>
                                     </Card>
@@ -363,7 +365,7 @@ const OperarioDashboard = React.memo(() => {
                                     <p className="mb-6 text-xl">Parece que no tienes una jornada activa registrada para hoy.</p>
                                     <Button
                                         onClick={handleRegistroProduccion}
-                                        className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-lg shadow-md"
+                                        className="group relative items-center gap-3 p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-md text-white px-6 py-3 hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 font-medium text-sm border border-blue-500/20"
                                     >
                                         Comenzar Registro de Tiempo
                                     </Button>
@@ -374,7 +376,8 @@ const OperarioDashboard = React.memo(() => {
                         {/* Solo mostrar el botón si existe una jornada actual con actividades registradas */}
                         {jornadaActual && jornadaActual.registros && jornadaActual.registros.length > 0 && (
                             <div className="flex justify-between items-center mt-6">
-                                <Button className="bg-blue-200 blue font-semibold px-6 py-3 rounded-xl shadow-lg hover:bg-blue-500 transition-all duration-300 cursor-pointer" onClick={handleRegistroProduccion}>
+
+                                <Button className="group relative items-center gap-3 p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-md text-white px-6 py-3 hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 font-medium text-sm border border-blue-500/20" onClick={handleRegistroProduccion}>
                                     Añadir actividad a jornada actual
                                 </Button>                           
                             </div>

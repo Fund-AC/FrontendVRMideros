@@ -142,13 +142,13 @@ const DuplicarJornada = ({
   return (
     <div className={`bg-white rounded-lg shadow-lg border border-gray-200 ${className}`}>
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-t-lg">
+      <div className="bg-gradient-to-r from-gray-700 to-gray-700 text-white p-6 rounded-t-lg">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-white/20 rounded-lg">
             <Copy className="w-6 h-6" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-800">Duplicar Jornada</h2>
+            <h2 className="text-2xl font-bold text-white">Duplicar Jornada</h2>
             <p className="text-blue-100 text-sm">
               Crea una nueva jornada basada en los datos existentes
             </p>
@@ -160,24 +160,24 @@ const DuplicarJornada = ({
       <div className="p-6 space-y-6">
         {/* Información de la jornada original */}
         <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-          <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
-            <Calendar className="w-5 h-5 text-blue-600" />
+          <h3 className="text-lg font-semibold text-black mb-3 flex items-center gap-2">
+            <Calendar className="w-5 h-5 text-blue-700" />
             Jornada Original
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-gray-500" />
-              <span className="text-gray-600">Fecha:</span>
+              <Calendar className="w-4 h-4 text-black" />
+              <span className="text-black">Fecha:</span>
               <span className="font-medium">{fechaOriginal}</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-gray-500" />
-              <span className="text-gray-600">Actividades:</span>
+              <CheckCircle className="w-4 h-4 text-black" />
+              <span className="text-black">Actividades:</span>
               <span className="font-medium">{totalActividades}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-gray-500" />
-              <span className="text-gray-600">Tiempo Total:</span>
+              <Clock className="w-4 h-4 text-black" />
+              <span className="text-black">Tiempo Total:</span>
               <span className="font-medium">
                 {tiempoTotal && typeof tiempoTotal.horas === 'number' && typeof tiempoTotal.minutos === 'number'
                   ? `${tiempoTotal.horas}h ${tiempoTotal.minutos}m`
@@ -189,8 +189,8 @@ const DuplicarJornada = ({
 
         {/* Selector de fecha para la nueva jornada */}
         <div className="space-y-3">
-          <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-            <Calendar className="w-5 h-5 text-green-600" />
+          <h3 className="text-lg font-semibold text-black flex items-center gap-2">
+            <Calendar className="w-5 h-5 text-teal-600" />
             Nueva Jornada
           </h3>
           <div className="space-y-2">
@@ -208,12 +208,12 @@ const DuplicarJornada = ({
         </div>
 
         {/* Vista previa de lo que se va a duplicar */}
-        <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-          <h4 className="font-semibold text-blue-800 mb-2 flex items-center gap-2">
-            <AlertCircle className="w-4 h-4" />
+        <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+          <h4 className="font-semibold- text-black mb-2 flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 text-blue-700" />
             ¿Qué se duplicará?
           </h4>
-          <ul className="text-sm text-blue-700 space-y-1">
+          <ul className="text-sm text-black space-y-1">
             <li>• Todas las actividades ({totalActividades}) con sus configuraciones</li>
             <li>• OTIs, procesos, áreas, máquinas e insumos</li>
             <li>• Tipos de tiempo y observaciones</li>
@@ -227,9 +227,10 @@ const DuplicarJornada = ({
         {/* Botones de acción */}
         <div className="flex gap-3 pt-4 border-t border-gray-200">
           <Button
+            // cambiar color
             onClick={handleDuplicar}
             disabled={loading || !fechaDuplicacion}
-            className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="order-1 sm:order-2 bg-gradient-to-r from-teal-400 to-teal-600 border-emerald-200/40  text-white font-semibold px-6 sm:px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-sm sm:text-base w-full sm:w-auto transform hover:scale-105"
           >
             {loading ? (
               <>
@@ -249,7 +250,7 @@ const DuplicarJornada = ({
               onClick={onClose}
               disabled={loading}
               variant="outline"
-              className="px-6 py-3 border-gray-300 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-all duration-200 disabled:opacity-50"
+              className="order-1 sm:order-2 bg-gradient-to-r from-red-400 to-red-600  text-white font-semibold px-6 sm:px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-sm sm:text-base w-full sm:w-auto transform hover:scale-105"
             >
               Cancelar
             </Button>

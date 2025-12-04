@@ -147,7 +147,7 @@ const MiJornada = () => {
               </div>
               <Button
                 onClick={() => navigate("/registro-produccion")}
-                className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-xl shadow-md transition duration-300"
+                 className="group relative items-center gap-3 p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-md text-white px-6 py-3 hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 font-medium text-sm border border-blue-500/20"
               >
                 Agregar actividad
               </Button>
@@ -159,17 +159,45 @@ const MiJornada = () => {
               </div>
             ) : jornadaActual && jornadaActual.registros && jornadaActual.registros.length > 0 ? (
               <>
-                <Card className="mb-6 bg-gray shadow-xl rounded-2xl border border-gray-400">
-                  <div className="bg-gradient-to-r from-gray-600 to-gray-800 text-white p-4 rounded-lg shadow-md mb-6 flex justify-between items-center">
-                    <h2 className="text-2xl font-semibold text-white border-b pb-2 border-gray-300">Detalles de la Jornada</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-white-700">
-                      <div><strong>Fecha:</strong> {ajustarFechaLocal(jornadaActual.fecha).toLocaleDateString()}</div>
-                      <div><strong>Tiempo Total:</strong> {jornadaActual.totalTiempoActividades && typeof jornadaActual.totalTiempoActividades.horas === 'number' && typeof jornadaActual.totalTiempoActividades.minutos === 'number' ? `${jornadaActual.totalTiempoActividades.horas}h ${jornadaActual.totalTiempoActividades.minutos}m` : (jornadaActual.totalTiempoActividades || 'N/A')}</div>
-                      <div><strong>Inicio de Jornada:</strong> {jornadaActual.horaInicio ? new Date(jornadaActual.horaInicio).toLocaleTimeString() : 'N/A'}</div>
-                      <div><strong>Fin de Jornada:</strong> {jornadaActual.horaFin ? new Date(jornadaActual.horaFin).toLocaleTimeString() : 'N/A'}</div>
-                    </div>
-                  </div>
-                </Card>
+               <Card className="mb-6 bg-gray shadow-xl rounded-2xl border border-gray-400">
+  <div className="bg-gray-700 text-white p-6 rounded-lg shadow-lg">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 items-center">
+      {/* Título ocupa más espacio */}
+      <div className="lg:col-span-1">
+        <h2 className="text-2xl font-semibold border-b text-white border-gray-600 pb-2">
+          Detalles de la Jornada
+        </h2>
+      </div>
+      
+      {/* Datos distribuidos en 4 columnas */}
+      <div className="text-sm">
+        <strong className="block text-gray-300">Fecha:</strong>
+        <span>{ajustarFechaLocal(jornadaActual.fecha).toLocaleDateString()}</span>
+      </div>
+      
+      <div className="text-sm">
+        <strong className="block text-gray-300">Tiempo Total:</strong>
+        <span>
+          {jornadaActual.totalTiempoActividades && 
+           typeof jornadaActual.totalTiempoActividades.horas === 'number' && 
+           typeof jornadaActual.totalTiempoActividades.minutos === 'number' 
+            ? `${jornadaActual.totalTiempoActividades.horas}h ${jornadaActual.totalTiempoActividades.minutos}m` 
+            : (jornadaActual.totalTiempoActividades || 'N/A')}
+        </span>
+      </div>
+      
+      <div className="text-sm">
+        <strong className="block text-gray-300">Inicio de Jornada:</strong>
+        <span>{jornadaActual.horaInicio ? new Date(jornadaActual.horaInicio).toLocaleTimeString() : 'N/A'}</span>
+      </div>
+      
+      <div className="text-sm">
+        <strong className="block text-gray-300">Fin de Jornada:</strong>
+        <span>{jornadaActual.horaFin ? new Date(jornadaActual.horaFin).toLocaleTimeString() : 'N/A'}</span>
+      </div>
+    </div>
+  </div>
+</Card>
 
                 <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800 border-b pb-2 border-gray-300">
                   Actividades Registradas
@@ -253,14 +281,14 @@ const MiJornada = () => {
                               <div className="flex flex-row gap-2 items-center justify-center">
                                 <button
                                   onClick={() => handleEditarActividad(actividad)}
-                                  className="bg-green-200 text-green-700 font-semibold px-2 py-1 rounded text-sm hover:bg-green-300 transition-all duration-300 cursor-pointer"
+                                 className="bg-gradient-to-br from-teal-400 to-teal-600 text-white font-semibold px-2 py-1 rounded text-sm hover:bg-green-300 transition-all duration-300 cursor-pointer gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
                                   title="Editar"
                                 >
                                   <Pencil size={14} className="inline" />
                                 </button>
                                 <button
                                   onClick={() => handleDeleteConfirmation(actividad._id)}
-                                  className="bg-red-200 text-red-700 font-semibold px-2 py-1 rounded text-sm hover:bg-red-300 transition-all duration-300 cursor-pointer"
+                                  className="bg-red-300 text-red-600 font-semibold px-2 py-1 rounded text-sm hover:bg-red-300 transition-all duration-300 cursor-pointer gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
                                   title="Eliminar"
                                 >
                                   <Trash2 size={14} className="inline" />
@@ -281,7 +309,7 @@ const MiJornada = () => {
                 </p>
                 <Button
                   onClick={() => navigate("/registro-produccion")}
-                  className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-xl shadow-md transition duration-300"
+                   className="group relative items-center gap-3 p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-md text-white px-6 py-3 hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 font-medium text-sm border border-blue-500/20"
                 >
                   <span className="flex items-center space-x-2">
                     <span>Comenzar Nueva Jornada</span>

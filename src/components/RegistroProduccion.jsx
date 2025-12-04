@@ -183,7 +183,7 @@ const ActividadCard = ({
             onClick={() => onDuplicate(index)}
             variant="outline"
             size="sm"
-            className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 border-blue-200 hover:border-blue-300 h-9 w-9 p-0 rounded-lg transition-all duration-200"
+            className="bg-gradient-to-br from-teal-400 to-teal-600 text-white font-semibold px-2 py-1 rounded text-sm hover:bg-green-300 transition-all duration-300 cursor-pointer gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
             title="Duplicar actividad"
           >
             <Copy className="w-4 h-4" />
@@ -195,7 +195,7 @@ const ActividadCard = ({
               onClick={() => onRemove(index)}
               variant="outline"
               size="sm"
-              className="text-red-600 hover:text-red-700 hover:bg-red-50 border-red-200 hover:border-red-300 h-9 w-9 p-0 rounded-lg transition-all duration-200"
+                 className="bg-red-300 text-red-600 font-semibold px-2 py-1 rounded text-sm hover:bg-red-300 transition-all duration-300 cursor-pointer gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
               title="Eliminar actividad"
             >
               <Trash2 className="w-4 h-4" />
@@ -351,13 +351,13 @@ const ActividadCard = ({
                     }),
                     multiValue: (base) => ({
                       ...base,
-                      backgroundColor: '#f3e8ff',
+                      backgroundColor: '#eff6ff',
                       borderRadius: '6px',
                       fontSize: '12px'
                     }),
                     multiValueLabel: (base) => ({
                       ...base,
-                      color: '#7c3aed',
+                      color: '#1e40af',
                       fontSize: '12px'
                     })
                   }}
@@ -419,13 +419,13 @@ const ActividadCard = ({
                     }),
                     multiValue: (base) => ({
                       ...base,
-                      backgroundColor: '#f3e8ff',
+                      backgroundColor: '#eff6ff',
                       borderRadius: '6px',
                       fontSize: '12px'
                     }),
                     multiValueLabel: (base) => ({
                       ...base,
-                      color: '#7c3aed',
+                      color: '#1e40af',
                       fontSize: '12px'
                     })
                   }}
@@ -561,7 +561,7 @@ const ActividadCard = ({
             rows={3}
             className={`transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none text-sm border-gray-300 rounded-lg ${
               actividad.tipoTiempo === 'Permiso Laboral' 
-                ? 'border-red-300 bg-red-50 placeholder-red-400' 
+                ? 'border-red-200 bg-red-50 placeholder-red-600' 
                 : ''
             }`}
             required={actividad.tipoTiempo === 'Permiso Laboral'}
@@ -758,7 +758,7 @@ const PlantillasRapidas = ({ onAgregarPlantilla, areasProduccionData, maquinasDa
             {/* Header compacto */}
             <div className="mb-4">
               <div className="flex items-center gap-2.5 mb-2">
-                <div className="p-1.5 bg-gradient-to-br from-indigo-500 via-blue-500 to-indigo-500 rounded-lg shadow-md">
+                <div className="p-1.5 bg-gradient-to-br from-indigo-500 via-blue-500 to-blue-500 rounded-lg shadow-md">
                   <Zap className="w-4 h-4 text-white" />
                 </div>
                 <div>
@@ -786,10 +786,10 @@ const PlantillasRapidas = ({ onAgregarPlantilla, areasProduccionData, maquinasDa
                       {plantilla.icono}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="font-semibold text-sm text-gray-800 mb-1 group-hover:text-blue-800 transition-colors duration-300 truncate">
+                      <div className="font-semibold text-sm text-gray-800 mb-1 group-hover:text-blue-500 transition-colors duration-300 truncate">
                         {plantilla.nombre}
                       </div>
-                      <div className="text-xs text-gray-600 mb-2 group-hover:text-blue-600 transition-colors duration-300 leading-tight">
+                      <div className="text-xs text-gray-600 mb-2 group-hover:text-gray-600 transition-colors duration-300 leading-tight">
                         {plantilla.descripcion}
                       </div>
 
@@ -814,7 +814,9 @@ const PlantillasRapidas = ({ onAgregarPlantilla, areasProduccionData, maquinasDa
               <button
                 type="button"
                 onClick={() => setShowPlantillas(false)}
-                className="group flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 hover:bg-gray-100/80 px-4 py-2.5 rounded-lg transition-all duration-300 border border-transparent hover:border-gray-200 font-medium"
+                // cambiar color
+                className="group flex items-center gap-2 text-sm text-white bg-gradient-to-r from-red-400 to-red-600 px-4 py-2.5 rounded-lg transition-all duration-300 border border-transparent hover:border-gray-200 font-medium"
+                // order-1 sm:order-2 bg-gradient-to-r from-red-400 to-red-600 
               >
                 <span>Cerrar Panel</span>
                 <div className="transform group-hover:rotate-90 transition-transform duration-300">
@@ -1680,16 +1682,16 @@ export default function RegistroProduccion() {
 
           {/* Banner de duplicación */}
           {esDuplicacion && datosJornadaOriginal && (
-            <div className="bg-gradient-to-r from-green-50 via-emerald-50 to-teal-50 border border-green-200 rounded-xl p-4 shadow-md">
+            <div className="bg-gradient-to-r from-emerald-50/80 to-teal-50/80 border border-emerald-200/40 rounded-lg p-3">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-green-100 rounded-full">
-                  <Copy className="w-5 h-5 text-green-600" />
+                <div className="p-2 bg-teal-50 rounded-full">
+                  <Copy className="w-5 h-5 text-teal-600" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-green-800">
-                    🎯 Duplicando Jornada
+                  <h3 className="text-lg  text-gray-800 leading-tight">
+                     Duplicando Jornada
                   </h3>
-                  <p className="text-sm text-green-700">
+                  <p className="text-sm text-gray-700">
                     Se han cargado las actividades de la jornada del{' '}
                     <span className="font-semibold">
                       {new Date(datosJornadaOriginal.fechaOriginal).toLocaleDateString()}
@@ -1701,30 +1703,12 @@ export default function RegistroProduccion() {
                   <CheckCircle className="w-8 h-8" />
                 </div>
               </div>
-              <div className="mt-3 p-3 bg-white/60 rounded-lg border border-green-200">
-                <p className="text-xs text-green-600 font-medium">
-                  💡 <strong>Tip:</strong> Revisa especialmente las horas de inicio y fin para ajustarlas a tu nueva jornada.
-                </p>
-              </div>
             </div>
           )}
           <form onSubmit={handleSubmitJornada} className="space-y-4">            {/* Información de la jornada */}
             <Card className="p-3 shadow-lg bg-white border border-gray-200 rounded-xl">
               {/* Información adicional para duplicación */}
-              {esDuplicacion && (
-                <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-                  <div className="flex items-center gap-2 mb-2">
-                    <AlertCircle className="w-4 h-4 text-blue-600" />
-                    <span className="text-sm font-medium text-blue-800">Campos editables:</span>
-                  </div>
-                  <ul className="text-xs text-blue-700 space-y-1 ml-6">
-                    <li>• <strong>Fecha:</strong> Ya está configurada, pero puedes cambiarla</li>
-                    <li>• <strong>Horarios:</strong> Ajusta las horas de inicio y fin según tu nueva jornada</li>
-                    <li>• <strong>OTIs:</strong> Modifica los números de orden si es necesario</li>
-                    <li>• <strong>Observaciones:</strong> Actualiza cualquier comentario específico</li>
-                  </ul>
-                </div>
-              )}
+             
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -1756,7 +1740,7 @@ export default function RegistroProduccion() {
               </div>
             </Card>{/* Resumen de actividades existentes con diseño de tabla */}
             {!urlJornadaId && actividadesResumen.length > 0 && (
-              <div className="bg-gradient-to-r from-gray-600 to-gray-800 border border-gray-200 rounded-2xl p-4 shadow-lg">
+              <div className="bg-gradient-to-r from-gray-700 to-gray-700 border border-gray-200 rounded-2xl p-4 shadow-lg">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
                     <div className="bg-amber-500 p-2 rounded-lg">
@@ -1988,7 +1972,7 @@ export default function RegistroProduccion() {
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="group flex items-center gap-3 p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-md text-white px-6 py-3 hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 font-medium text-sm border border-blue-500/20"
+                 className="order-1 sm:order-2 bg-gradient-to-r from-teal-400 to-teal-600 border-emerald-200/40  text-white font-semibold px-6 sm:px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-sm sm:text-base w-full sm:w-auto transform hover:scale-105"
                 >
                   {loading ? (
                     <>

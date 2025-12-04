@@ -190,7 +190,7 @@ const ajustarFechaLocal = (fechaUTC) => {
                 <Button 
                   onClick={handleLimpiarFiltro} 
                   disabled={loading}
-                  className="bg-gray-200 gray font-semibold px-6 py-3 rounded-xl shadow-lg hover:bg-gray-500 transition-all duration-300 cursor-pointer h-10 flex items-center disabled:opacity-50 disabled:cursor-not-allowed" // Ajuste de altura y alineación
+                  className="order-1 sm:order-2 bg-gradient-to-r from-red-400 to-red-600  text-white font-semibold px-6 sm:px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-sm sm:text-base w-full sm:w-auto transform hover:scale-105" 
                 >
                   {loading ? 'Limpiando...' : 'Limpiar Filtro'}
                 </Button>
@@ -215,7 +215,7 @@ const ajustarFechaLocal = (fechaUTC) => {
                       <div className="flex gap-3">
                         <Button 
                           onClick={() => handleOpenDuplicarModal(jornada)}
-                          className="bg-gradient-to-r from-teal-800 to-teal-700 hover:from-emerald-600 hover:to-emerald-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
+                          className="bg-gradient-to-r from-teal-400 to-teal-600 border-emerald-200/40  text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
                           title="Duplicar esta jornada"
                         >
                           <Copy className="w-4 h-4" />
@@ -224,7 +224,7 @@ const ajustarFechaLocal = (fechaUTC) => {
                         <Button 
                           onClick={() => toggleExpand(jornada._id)}
                           variant="outline" 
-                          className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 border-blue-300"
+                          className="bg-gradient-to-r from-blue-500 to-indigo-500 border-indigo-200/40  text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
                         >
                           {expandedJornada === jornada._id ? (
                             <span className="flex items-center gap-2">
@@ -318,14 +318,15 @@ const ajustarFechaLocal = (fechaUTC) => {
                                   <div className="flex flex-row gap-2 items-center justify-center">
                                     <button
                                       onClick={() => handleOpenEditModal(actividad)}
-                                      className="bg-green-200 text-green-700 font-semibold px-2 py-1 rounded text-sm hover:bg-green-300 transition-all duration-300 cursor-pointer"
+                                      className="bg-gradient-to-br from-teal-400 to-teal-600 text-white font-semibold px-2 py-1 rounded text-sm hover:bg-green-300 transition-all duration-200 cursor-pointer gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
+                                      // className="bg-gradient-to-r from-teal-400 to-teal-600 border-emerald-200/40  text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
                                       title="Editar"
                                     >
                                       <Pencil size={14} className="inline" />
                                     </button>
                                     <button
                                       onClick={() => handleEliminarActividad(jornada._id, actividad._id)}
-                                      className="bg-red-200 text-red-700 font-semibold px-2 py-1 rounded text-sm hover:bg-red-300 transition-all duration-300 cursor-pointer"
+                                      className="bg-red-300 text-red-600 font-semibold px-2 py-1 rounded text-sm hover:bg-red-300 transition-all duration-300 cursor-pointer gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
                                       title="Eliminar"
                                     >
                                       <Trash2 size={14} className="inline" />

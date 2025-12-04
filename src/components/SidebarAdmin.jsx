@@ -79,16 +79,16 @@ export const SidebarAdmin = () => {
       </nav>
 
       {/* Logout */}
-                        <div className="p-2 border-t border-gray-700">
-        <button
-          onClick={handleLogout}
-          className="flex items-center gap-2 p-2 hover:bg-gray-700 rounded-md w-full"
-          aria-label="Cerrar sesión"
-        >
-          <LogOut className="text-white" size={20} />
-          {!collapsed && <span>Cerrar Sesión</span>}
-        </button>
+                         <div className="mt-auto p-2 pb-4 border-t border-gray-700"> {/* Cambié p-2 por p-2 pb-4 */}
+      <button
+        onClick={handleLogout}
+        className="flex items-center gap-2 p-2 hover:bg-gray-700 rounded-md w-full text-red-400 hover:text-red-300"
+        aria-label="Salir"
+      >
+        <LogOut className="text-red-400" size={20} />
+        {!collapsed && <span>Cerrar Sesión</span>}
+       </button>
       </div>
-    </motion.div>
+     </motion.div>
   );
 };
