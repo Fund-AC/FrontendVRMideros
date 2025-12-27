@@ -71,7 +71,7 @@ export const plantillaActividades = [
     descripcion: 'Tiempo de alimentación - almuerzo',
     color: 'from-green-500 to-green-600',
     icono: <Utensils className="w-4 h-4" />,
-    horasSugeridas: { inicio: '13:00', fin: '13:35' },
+    horasSugeridas: { inicio: '13:00', fin: '13:30' },
     procesoDefecto: 'Almuerzo',
     busquedaProceso: ['almuerzo', 'alimentacion', 'alimentación', 'comida', 'lunch'],
     template: {
