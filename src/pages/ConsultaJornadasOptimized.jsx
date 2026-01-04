@@ -22,10 +22,13 @@ const parseLocalDate = (dateString) => {
 
 // Componente memoizado para filas de la tabla
 const JornadaRow = React.memo(({ jornada, index, onViewDetails }) => {
-    const fechaStr = useMemo(() =>
-        new Date(jornada.fecha).toLocaleDateString() || 'N/A',
-        [jornada.fecha]
-    );
+    const fechaStr = useMemo(() => {
+        if (!jornada.fecha) return 'N/A';
+        // Extraer solo la parte de la fecha para evitar ajuste de zona horaria
+        const fecha = jornada.fecha.split('T')[0];
+        const [year, month, day] = fecha.split('-');
+        return new Date(year, month - 1, day).toLocaleDateString();
+    }, [jornada.fecha]);
 
     const horaJornada = useMemo(() => {
         if (!jornada.horaInicio || !jornada.horaFin) return 'N/A';
@@ -358,7 +361,7 @@ const ConsultaJornadasOptimized = () => {
                     'Fecha': fechaStr,
                     'Operario': operarioNombre,
                     'Inicio jornada': horaInicioJornada,
-                    'Fin Jornada': horaFinJornada,
+                    'Fin Jornada': horaFinJornada,                    
                     'Total Jornada': tiempoTotalJornadaFormateado,
                     'Permisos Remunerados': totalPermisosRemuneradosFormateado,
                     'Horarios P. Remunerados': permisosRemuneradosInfo.join(', ') || '-',
@@ -379,6 +382,7 @@ const ConsultaJornadasOptimized = () => {
                     { wch: 30 }, // Operario
                     { wch: 12 }, // Inicio jornada
                     { wch: 12 }, // Fin Jornada
+                    { wch: 12 }, // Almuerzo
                     { wch: 15 }, // Total Jornada
                     { wch: 18 }, // Permisos Remunerados
                     { wch: 25 }, // Horarios P. Remunerados
