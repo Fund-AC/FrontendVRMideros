@@ -96,9 +96,6 @@ const JornadaRow = React.memo(({ jornada, index, onViewDetails }) => {
         const tiempoAlmuerzoMinutos = almuerzos.reduce((total, almuerzo) => {
             return total + (almuerzo.tiempo || 0);
         }, 0);
-
-        console.log(`🕒 Tiempo total: ${tiempoTotalMinutos}min, Almuerzo: ${tiempoAlmuerzoMinutos}min, Resultado: ${tiempoTotalMinutos - tiempoAlmuerzoMinutos}min`);
-
         // Descontar almuerzo
         tiempoTotalMinutos = Math.max(0, tiempoTotalMinutos - tiempoAlmuerzoMinutos);
 
@@ -276,12 +273,6 @@ const ConsultaJornadasOptimized = () => {
             if (filters.fechaInicio) params.append('fechaInicio', filters.fechaInicio);
             if (filters.fechaFin) params.append('fechaFin', filters.fechaFin);
 
-            console.log('🔍 Exportando con filtros:', {
-                operario: filters.search || 'Todos',
-                fechaInicio: filters.fechaInicio || 'Sin filtro',
-                fechaFin: filters.fechaFin || 'Sin filtro'
-            });
-
             const response = await axiosInstance.get(`/jornadas/paginadas?${params}`);
             const jornadasCompletas = response.data.jornadas || [];
 
@@ -289,9 +280,7 @@ const ConsultaJornadasOptimized = () => {
                 toast.info('No hay jornadas para exportar con los filtros aplicados.');
                 return;
             }
-
-            console.log(`📊 Exportando ${jornadasCompletas.length} jornadas filtradas`);
-
+            
             // Función para convertir minutos a horas decimales
             const minutosAHorasDecimales = (minutos) => {
                 if (minutos <= 0) return 0;
