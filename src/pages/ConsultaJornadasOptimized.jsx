@@ -82,9 +82,31 @@ const JornadaRow = React.memo(({ jornada, index, onViewDetails }) => {
     }, [jornada.registros]);
 
     const tiempoTotalAPagar = useMemo(() => {
-        const tiempo = jornada.tiempoEfectivoAPagar || { horas: 0, minutos: 0 };
-        return `${tiempo.horas}h ${tiempo.minutos}m`;
-    }, [jornada.tiempoEfectivoAPagar]);
+        // Tiempo base (ya tiene descontados los permisos NO remunerados)
+        const tiempoBase = jornada.tiempoEfectivoAPagar || { horas: 0, minutos: 0 };
+        let tiempoTotalMinutos = (tiempoBase.horas * 60) + tiempoBase.minutos;
+
+        // Buscar y descontar tiempo de almuerzo
+        const almuerzos = jornada.registros?.filter(registro => {
+            return registro.procesos?.some(proceso => 
+                proceso.nombre?.toLowerCase().includes('almuerzo')
+            );
+        }) || [];
+        
+        const tiempoAlmuerzoMinutos = almuerzos.reduce((total, almuerzo) => {
+            return total + (almuerzo.tiempo || 0);
+        }, 0);
+
+        console.log(`🕒 Tiempo total: ${tiempoTotalMinutos}min, Almuerzo: ${tiempoAlmuerzoMinutos}min, Resultado: ${tiempoTotalMinutos - tiempoAlmuerzoMinutos}min`);
+
+        // Descontar almuerzo
+        tiempoTotalMinutos = Math.max(0, tiempoTotalMinutos - tiempoAlmuerzoMinutos);
+
+        const horas = Math.floor(tiempoTotalMinutos / 60);
+        const minutos = tiempoTotalMinutos % 60;
+        
+        return `${horas}h ${minutos}m`;
+    }, [jornada.tiempoEfectivoAPagar, jornada.registros]);
 
     return (
         <tr
@@ -299,6 +321,24 @@ const ConsultaJornadasOptimized = () => {
                     }
 
                     tiempoTotalJornadaMinutos = Math.round((fin - inicio) / (1000 * 60));
+                }
+
+                // Buscar y descontar tiempo de almuerzo si existe
+                // Filtrar registros de producción que tengan el proceso "Almuerzo"
+                const almuerzos = j.registros?.filter(registro => {
+                    // registro.procesos es un array de referencias a Proceso
+                    return registro.procesos?.some(proceso => 
+                        proceso.nombre?.toLowerCase().includes('almuerzo')
+                    );
+                }) || [];
+                
+                const tiempoAlmuerzoMinutos = almuerzos.reduce((total, almuerzo) => {
+                    return total + (almuerzo.tiempo || 0);
+                }, 0);
+
+                // Descontar almuerzo del total de jornada
+                if (tiempoAlmuerzoMinutos > 0) {
+                    tiempoTotalJornadaMinutos = Math.max(0, tiempoTotalJornadaMinutos - tiempoAlmuerzoMinutos);
                 }
 
                 const tiempoTotalJornadaFormateado = tiempoTotalJornadaMinutos > 0
